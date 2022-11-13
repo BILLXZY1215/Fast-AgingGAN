@@ -52,13 +52,13 @@ tensorboard --logdir=lightning_logs --bind_all
 # Usage Infer
 
 ```
-ffmpeg -i <path-to-origin-video> <path-to-output-dir>-frame-%d.png
+ffmpeg -i <path-to-origin-video> <path-to-output-dir>/frame-%d.png
 
 python infer.py --image_dir <path-to-output-dir> --save_dir <path-to-generate-old-age-dir>
 
 cd src
 
-ffmpeg -i  <path-to-generate-old-age-dir>%0d.png -c:v libx264 -vf "fps=25,format=yuv420p" out.mp4
+ffmpeg -i  <path-to-generate-old-age-dir>/%0d.png -c:v libx264 -vf "fps=25,format=yuv420p" out.mp4
 
 ffmpeg -i <path-to-origin-video> -vn -acodec copy audio.m4a
 

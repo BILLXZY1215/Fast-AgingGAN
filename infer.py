@@ -21,7 +21,7 @@ def main():
     args = parser.parse_args()
     image_paths = [os.path.join(args.image_dir, x) for x in os.listdir(args.image_dir) if
                    x.endswith('.png') or x.endswith('.jpg')]
-    images_paths_ranking = [(path, int(path.split("-")[2].split('.')[0]))
+    images_paths_ranking = [(path, int(path.split("-")[1].split('.')[0]))
                             for path in image_paths]
 
     # bubblesort
@@ -59,7 +59,7 @@ def main():
         # ax[1, i].imshow(aged_face)
         aged_face = Image.fromarray(aged_face, 'RGB')
         aged_face.save(args.save_dir + '/' + image_path.split("-")
-                       [2].split('.')[0] + '.png')
+                       [1].split('.')[0] + '.png')
     # plt.show()
     # plt.savefig("mygraph.png")
 
